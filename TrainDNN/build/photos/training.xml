@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2660.JPG'>
+    <box top='739' left='920' width='1267' height='1300'>
+      <label>book</label>
+    </box>
+    <box top='739' left='920' width='1' height='1'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2661.JPG'>
+    <box top='881' left='842' width='1014' height='1158'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2662.JPG'>
+    <box top='1097' left='1062' width='751' height='1060'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2663.JPG'>
+    <box top='955' left='1471' width='992' height='1239'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2664.JPG'>
+    <box top='1129' left='1431' width='679' height='886'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2665.JPG'>
+    <box top='1307' left='1761' width='639' height='724'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2666.JPG'>
+    <box top='120' left='1437' width='428' height='777'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2667.JPG'>
+    <box top='961' left='1468' width='420' height='505'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2668.JPG'>
+    <box top='1042' left='1529' width='500' height='568'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2669.JPG'>
+    <box top='701' left='1201' width='880' height='936'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2670.JPG'>
+    <box top='365' left='471' width='1230' height='1105'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2671.JPG'>
+    <box top='1041' left='1214' width='973' height='924'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2672.JPG'>
+    <box top='301' left='581' width='2236' height='1892'>
+      <label>book</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2673.JPG'>
+    <box top='54' left='228' width='1795' height='2137'>
+      <label>book</label>
+    </box>
+  </image>
+</images>
+</dataset>

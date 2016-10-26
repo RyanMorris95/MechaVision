@@ -1,0 +1,6 @@
+/home/ubuntu/Workspace/DetectObstacles/AutoThresh/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/AutoThresh/build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/AutoThresh/build/CMakeFiles/AutoThreshold.dir
+/home/ubuntu/Workspace/DetectObstacles/AutoThresh/build/dlib_build/CMakeFiles/edit_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/AutoThresh/build/dlib_build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/AutoThresh/build/dlib_build/CMakeFiles/dlib.dir

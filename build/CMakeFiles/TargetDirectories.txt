@@ -1,0 +1,6 @@
+/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/Detect.dir
+/home/ubuntu/Workspace/DetectObstacles/build/dlib_build/CMakeFiles/edit_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/build/dlib_build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/build/dlib_build/CMakeFiles/dlib.dir
