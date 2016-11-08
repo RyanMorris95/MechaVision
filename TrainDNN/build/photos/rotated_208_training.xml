@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo10 (1).png'>
+    <box top='120' left='112' width='527' height='524'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo10.png'>
+    <box top='62' left='61' width='284' height='278'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo11.png'>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo11.png'>
+    <box top='110' left='104' width='525' height='527'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo12.png'>
+    <box top='111' left='111' width='559' height='553'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo1.png'>
+    <box top='169' left='203' width='331' height='311'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo2.png'>
+    <box top='98' left='91' width='325' height='318'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo3.png'>
+    <box top='214' left='216' width='362' height='361'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo4.png'>
+    <box top='158' left='238' width='319' height='301'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo5.png'>
+    <box top='179' left='203' width='355' height='351'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo6.png'>
+    <box top='134' left='153' width='343' height='315'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo7.png'>
+    <box top='114' left='112' width='206' height='212'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_torpedo9.png'>
+    <box top='91' left='101' width='288' height='281'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo10 (1).png'>
+    <box top='268' left='266' width='525' height='525'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo10.png'>
+    <box top='141' left='143' width='281' height='280'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo11.png'>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo11.png'>
+    <box top='270' left='255' width='525' height='525'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo12.png'>
+    <box top='265' left='266' width='555' height='555'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo1.png'>
+    <box top='310' left='329' width='322' height='319'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo2.png'>
+    <box top='193' left='197' width='321' height='320'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo3.png'>
+    <box top='388' left='373' width='361' height='361'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo4.png'>
+    <box top='279' left='347' width='310' height='308'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo5.png'>
+    <box top='296' left='341' width='353' height='352'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo6.png'>
+    <box top='240' left='269' width='331' height='326'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo7.png'>
+    <box top='194' left='199' width='208' height='209'>
+      <label>board</label>
+    </box>
+  </image>
+  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/rotated_208_rotated_36_torpedo9.png'>
+    <box top='185' left='191' width='285' height='284'>
+      <label>board</label>
+    </box>
+  </image>
+</images>
+</dataset>

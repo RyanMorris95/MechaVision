@@ -1,0 +1,6 @@
+/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/CMakeFiles/DetectObstacles.dir
+/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/dlib_build/CMakeFiles/edit_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/dlib_build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/dlib_build/CMakeFiles/dlib.dir
