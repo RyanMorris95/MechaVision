@@ -48,40 +48,33 @@
 #include <dlib/image_processing.h>
 #include <dlib/image_transforms.h>
 #include <dlib/gui_widgets.h>
+#include <dlib/opencv.h>
+#include <opencv2/highgui/highgui.hpp>
 
 
 using namespace std;
 using namespace dlib;
 
 // ----------------------------------------------------------------------------------------
+// Let's begin the network definition by creating some network blocks.
 
-
-template <long num_filters, typename SUBNET> using con5d = con<num_filters,5,5,2,2,SUBNET>;
-template <long num_filters, typename SUBNET> using con5  = con<num_filters,5,5,1,1,SUBNET>;
-
-template <typename SUBNET> using downsampler  = relu<bn_con<con5d<32, relu<bn_con<con5d<32, relu<bn_con<con5d<16,SUBNET>>>>>>>>>;
-template <typename SUBNET> using rcon5  = relu<bn_con<con5<45,SUBNET>>>;
-
-using net_type = loss_mmod<con<1,9,9,1,1,rcon5<rcon5<rcon5<downsampler<input_rgb_image_pyramid<pyramid_down<6>>>>>>>>;
-/*
 // A 5x5 conv layer that does 2x downsampling
 template <long num_filters, typename SUBNET> using con5d = con<num_filters,5,5,2,2,SUBNET>;
 // A 3x3 conv layer that doesn't do any downsampling
-template <long num_filters, typename SUBNET> using con3  = con<num_filters,3,3,1,1,SUBNET>;
+template <long num_filters, typename SUBNET> using con5  = con<num_filters,5,5,1,1,SUBNET>;
 
 // Now we can define the 8x downsampling block in terms of conv5d blocks.  We
 // also use relu and batch normalization in the standard way.
-template <typename SUBNET> using downsampler  = relu<bn_con<con5d<32, relu<bn_con<con5d<32, relu<bn_con<con5d<32,SUBNET>>>>>>>>>;
+template <typename SUBNET> using downsampler  = relu<bn_con<con5d<32, relu<bn_con<con5d<32, relu<bn_con<con5d<16,SUBNET>>>>>>>>>;
 
 // The rest of the network will be 3x3 conv layers with batch normalization and
 // relu.  So we define the 3x3 block we will use here.
-template <typename SUBNET> using rcon3  = relu<bn_con<con3<32,SUBNET>>>;
+template <typename SUBNET> using rcon5  = relu<bn_con<con5<45,SUBNET>>>;
 
 // Finally, we define the entire network.   The special input_rgb_image_pyramid
 // layer causes the network to operate over a spatial pyramid, making the detector
 // scale invariant.  
-using net_type  = loss_mmod<con<1,6,6,1,1,rcon3<rcon3<rcon3<downsampler<input_rgb_image_pyramid<pyramid_down<6>>>>>>>>;
-*/
+using net_type  = loss_mmod<con<1,9,9,1,1,rcon5<rcon5<rcon5<downsampler<input_rgb_image_pyramid<pyramid_down<6>>>>>>>>;
 
 
 // ----------------------------------------------------------------------------------------
@@ -89,6 +82,7 @@ using net_type  = loss_mmod<con<1,6,6,1,1,rcon3<rcon3<rcon3<downsampler<input_rg
 
 int main(int argc, char** argv) try
 {
+	
     if (argc == 1)
     {
         cout << "Call this program like this:" << endl;
@@ -97,15 +91,15 @@ int main(int argc, char** argv) try
         cout << "http://dlib.net/files/mmod_human_face_detector.dat.bz2" << endl;
         return 0;
     }
-
-
+	
     net_type net;
     deserialize(argv[1]) >> net;  
 
     image_window win;
-    for (int i = 2; i < argc; ++i)
+    //for (int i = 2; i < argc; ++i)
+    for (int i = 2; i < argc; i++)
     {
-        matrix<rgb_pixel> img;
+	
         load_image(img, argv[i]);
 	matrix<rgb_pixel> out_img;
 	out_img.set_size(400,400);
@@ -123,13 +117,18 @@ int main(int argc, char** argv) try
         // the same size.  To avoid this requirement on images being the same size we
         // process them individually in this example.
         auto dets = net(out_img);
+	
         win.clear_overlay();
         win.set_image(out_img);
         for (auto&& d : dets)
+	{
+	    // This is an example output of d
+	    // [(95, 145) (228, 292)]
             win.add_overlay(d);
-
-        cout << "Hit enter to process the next image." << endl;
-        cin.get();
+	    cout << d;
+	}
+        //cout << "Hit enter to process the next image." << endl;
+        //cin.get();
     }
 }
 catch(std::exception& e)

@@ -91,9 +91,16 @@ Detect_EXTERNAL_OBJECTS =
 Detect: CMakeFiles/Detect.dir/detect_obstacles.cpp.o
 Detect: CMakeFiles/Detect.dir/build.make
 Detect: dlib_build/libdlib.a
-Detect: /usr/local/cuda-8.0/lib64/libcudart_static.a
-Detect: /usr/lib/aarch64-linux-gnu/librt.so
-Detect: /usr/lib/aarch64-linux-gnu/librt.so
+Detect: /usr/lib/libopencv_vstab.so.2.4.13
+Detect: /usr/lib/libopencv_imuvstab.so.2.4.13
+Detect: /usr/lib/libopencv_facedetect.so.2.4.13
+Detect: /usr/lib/libopencv_esm_panorama.so.2.4.13
+Detect: /usr/lib/libopencv_detection_based_tracker.so.2.4.13
+Detect: /usr/lib/libopencv_videostab.so.2.4.13
+Detect: /usr/lib/libopencv_ts.a
+Detect: /usr/lib/libopencv_superres.so.2.4.13
+Detect: /usr/lib/libopencv_contrib.so.2.4.13
+Detect: /usr/local/cuda-8.0/lib64/libcudart.so
 Detect: /usr/lib/aarch64-linux-gnu/libnsl.so
 Detect: /usr/lib/aarch64-linux-gnu/libSM.so
 Detect: /usr/lib/aarch64-linux-gnu/libICE.so
@@ -104,6 +111,25 @@ Detect: /usr/lib/libopenblas.so
 Detect: /usr/local/cuda-8.0/lib64/libcublas.so
 Detect: /usr/lib/aarch64-linux-gnu/libcudnn.so
 Detect: /usr/local/cuda-8.0/lib64/libcurand.so
+Detect: /usr/lib/libopencv_tegra.so.2.4.13
+Detect: /usr/lib/libopencv_stitching.so.2.4.13
+Detect: /usr/lib/libopencv_gpu.so.2.4.13
+Detect: /usr/lib/libopencv_photo.so.2.4.13
+Detect: /usr/lib/libopencv_legacy.so.2.4.13
+Detect: /usr/local/cuda-8.0/lib64/libcufft.so
+Detect: /usr/lib/libopencv_video.so.2.4.13
+Detect: /usr/lib/libopencv_objdetect.so.2.4.13
+Detect: /usr/lib/libopencv_ml.so.2.4.13
+Detect: /usr/lib/libopencv_calib3d.so.2.4.13
+Detect: /usr/lib/libopencv_features2d.so.2.4.13
+Detect: /usr/lib/libopencv_highgui.so.2.4.13
+Detect: /usr/lib/libopencv_imgproc.so.2.4.13
+Detect: /usr/lib/libopencv_flann.so.2.4.13
+Detect: /usr/lib/libopencv_core.so.2.4.13
+Detect: /usr/local/cuda-8.0/lib64/libcudart.so
+Detect: /usr/local/cuda-8.0/lib64/libnppc.so
+Detect: /usr/local/cuda-8.0/lib64/libnppi.so
+Detect: /usr/local/cuda-8.0/lib64/libnpps.so
 Detect: CMakeFiles/Detect.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Detect"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Detect.dir/link.txt --verbose=$(VERBOSE)

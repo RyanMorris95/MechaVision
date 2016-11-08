@@ -114,7 +114,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Detect
+CMAKE_PROJECT_NAME:STATIC=Detect_v2
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -236,7 +236,7 @@ CUDA_TOOLKIT_ROOT_DIR:PATH=/usr/local/cuda-8.0
 CUDA_TOOLKIT_TARGET_DIR:PATH=/usr/local/cuda-8.0
 
 //Use the static version of the CUDA runtime library if available
-CUDA_USE_STATIC_CUDA_RUNTIME:BOOL=ON
+CUDA_USE_STATIC_CUDA_RUNTIME:BOOL=OFF
 
 //Print out the commands run while compiling the CUDA source file.
 //  With the Makefile generator this defaults to VERBOSE variable
@@ -321,6 +321,12 @@ Detect_BINARY_DIR:STATIC=/home/ubuntu/Workspace/DetectObstacles/build
 //Value Computed by CMake
 Detect_SOURCE_DIR:STATIC=/home/ubuntu/Workspace/DetectObstacles
 
+//Value Computed by CMake
+Detect_v2_BINARY_DIR:STATIC=/home/ubuntu/Workspace/DetectObstacles/build
+
+//Value Computed by CMake
+Detect_v2_SOURCE_DIR:STATIC=/home/ubuntu/Workspace/DetectObstacles
+
 //Path to a file.
 GIF_INCLUDE_DIR:PATH=GIF_INCLUDE_DIR-NOTFOUND
 
@@ -328,10 +334,27 @@ GIF_INCLUDE_DIR:PATH=GIF_INCLUDE_DIR-NOTFOUND
 GIF_LIBRARY:FILEPATH=GIF_LIBRARY-NOTFOUND
 
 //Path to a file.
-JPEG_INCLUDE_DIR:PATH=JPEG_INCLUDE_DIR-NOTFOUND
+JPEG_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
-JPEG_LIBRARY:FILEPATH=JPEG_LIBRARY-NOTFOUND
+JPEG_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/libjpeg.so
+
+//Path where debug 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=
+
+//Path where release 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=
+
+OpenCV_CONFIG_PATH:FILEPATH=/usr/share/OpenCV
+
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/share/OpenCV
+
+//Path where debug OpenCV libraries are located
+OpenCV_LIB_DIR_DBG:PATH=
+
+//Path where release OpenCV libraries are located
+OpenCV_LIB_DIR_OPT:PATH=
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
@@ -550,7 +573,7 @@ cudnn_include:PATH=/usr/include
 dlib_BINARY_DIR:STATIC=/home/ubuntu/Workspace/DetectObstacles/build/dlib_build
 
 //Dependencies for the target
-dlib_LIB_DEPENDS:STATIC=general;/usr/local/cuda-8.0/lib64/libcudart_static.a;general;-lpthread;general;dl;general;/usr/lib/aarch64-linux-gnu/librt.so;general;-lpthread;general;/usr/lib/aarch64-linux-gnu/libnsl.so;general;/usr/lib/aarch64-linux-gnu/libSM.so;general;/usr/lib/aarch64-linux-gnu/libICE.so;general;/usr/lib/aarch64-linux-gnu/libX11.so;general;/usr/lib/aarch64-linux-gnu/libXext.so;general;/usr/lib/aarch64-linux-gnu/libpng.so;general;/usr/lib/libopenblas.so;general;/usr/local/cuda-8.0/lib64/libcublas.so;general;/usr/lib/aarch64-linux-gnu/libcudnn.so;general;/usr/local/cuda-8.0/lib64/libcurand.so;
+dlib_LIB_DEPENDS:STATIC=general;/usr/local/cuda-8.0/lib64/libcudart.so;general;-lpthread;general;/usr/lib/aarch64-linux-gnu/libnsl.so;general;/usr/lib/aarch64-linux-gnu/libSM.so;general;/usr/lib/aarch64-linux-gnu/libICE.so;general;/usr/lib/aarch64-linux-gnu/libX11.so;general;/usr/lib/aarch64-linux-gnu/libXext.so;general;/usr/lib/aarch64-linux-gnu/libpng.so;general;/usr/lib/aarch64-linux-gnu/libjpeg.so;general;/usr/lib/libopenblas.so;general;/usr/local/cuda-8.0/lib64/libcublas.so;general;/usr/lib/aarch64-linux-gnu/libcudnn.so;general;/usr/local/cuda-8.0/lib64/libcurand.so;
 
 //Value Computed by CMake
 dlib_SOURCE_DIR:STATIC=/home/ubuntu/dlib-19.2/dlib
@@ -838,7 +861,7 @@ CUDA_parse_cubin:INTERNAL=/usr/share/cmake-3.5/Modules/FindCUDA/parse_cubin.cmak
 //Location of run_nvcc.cmake
 CUDA_run_nvcc:INTERNAL=/usr/share/cmake-3.5/Modules/FindCUDA/run_nvcc.cmake
 //Details about finding CUDA
-FIND_PACKAGE_MESSAGE_DETAILS_CUDA:INTERNAL=[/usr/local/cuda-8.0][/usr/local/cuda-8.0/bin/nvcc][/usr/local/cuda-8.0/include][/usr/local/cuda-8.0/lib64/libcudart.so][v8.0(7.5)]
+FIND_PACKAGE_MESSAGE_DETAILS_CUDA:INTERNAL=[/usr/local/cuda-8.0][/usr/local/cuda-8.0/bin/nvcc][/usr/local/cuda-8.0/include][/usr/local/cuda-8.0/lib64/libcudart.so][v8.0(8.0)]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding Threads
@@ -897,10 +920,22 @@ LAPACK_REFERENCE_lapack_INCLUDEDIR:INTERNAL=
 LAPACK_REFERENCE_lapack_LIBDIR:INTERNAL=
 LAPACK_REFERENCE_lapack_PREFIX:INTERNAL=
 LAPACK_REFERENCE_lapack_VERSION:INTERNAL=
+//Have function jpeg_read_header
+LIBJPEG_IS_GOOD:INTERNAL=1
 //Have function png_create_read_struct
 LIBPNG_IS_GOOD:INTERNAL=1
 //Have function sgetrf_single
 OPENBLAS_HAS_LAPACK:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_DBG
+OpenCV_3RDPARTY_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_OPT
+OpenCV_3RDPARTY_LIB_DIR_OPT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_CONFIG_PATH
+OpenCV_CONFIG_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_DBG
+OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_OPT
+OpenCV_LIB_DIR_OPT-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PNG_LIBRARY_DEBUG

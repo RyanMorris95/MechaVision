@@ -419,6 +419,11 @@ CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dli
 CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/misc_api/windows.h
 CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/noncopyable.h
 CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/numeric_constants.h
+CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/opencv.h
+CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/opencv/cv_image.h
+CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/opencv/cv_image_abstract.h
+CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/opencv/to_open_cv.h
+CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/opencv/to_open_cv_abstract.h
 CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/optimization.h
 CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/optimization/find_max_factor_graph_nmplp.h
 CMakeFiles/Detect.dir/detect_obstacles.cpp.o: /home/ubuntu/dlib-19.2/dlib/../dlib/optimization/find_max_factor_graph_nmplp_abstract.h

@@ -11,6 +11,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/ubuntu/dlib-19.2/dlib/.."
+  "/usr/include/opencv"
   )
 
 # Targets to which this target links.

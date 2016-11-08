@@ -4,14 +4,6 @@
 <name>imglab dataset</name>
 <comment>Created by imglab tool.</comment>
 <images>
-  <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2660.JPG'>
-    <box top='739' left='920' width='1267' height='1300'>
-      <label>book</label>
-    </box>
-    <box top='739' left='920' width='1' height='1'>
-      <label>book</label>
-    </box>
-  </image>
   <image file='/home/ubuntu/Workspace/DetectObstacles/TrainDNN/build/photos/IMG_2661.JPG'>
     <box top='881' left='842' width='1014' height='1158'>
       <label>book</label>

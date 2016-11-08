@@ -420,6 +420,11 @@ CMakeFiles/Detect.dir/detect_obstacles.cpp.o
  /home/ubuntu/dlib-19.2/dlib/../dlib/misc_api/windows.h
  /home/ubuntu/dlib-19.2/dlib/../dlib/noncopyable.h
  /home/ubuntu/dlib-19.2/dlib/../dlib/numeric_constants.h
+ /home/ubuntu/dlib-19.2/dlib/../dlib/opencv.h
+ /home/ubuntu/dlib-19.2/dlib/../dlib/opencv/cv_image.h
+ /home/ubuntu/dlib-19.2/dlib/../dlib/opencv/cv_image_abstract.h
+ /home/ubuntu/dlib-19.2/dlib/../dlib/opencv/to_open_cv.h
+ /home/ubuntu/dlib-19.2/dlib/../dlib/opencv/to_open_cv_abstract.h
  /home/ubuntu/dlib-19.2/dlib/../dlib/optimization.h
  /home/ubuntu/dlib-19.2/dlib/../dlib/optimization/find_max_factor_graph_nmplp.h
  /home/ubuntu/dlib-19.2/dlib/../dlib/optimization/find_max_factor_graph_nmplp_abstract.h

@@ -766,3 +766,17 @@ Linking C executable cmTC_4824a
 make[1]: Leaving directory '/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the function jpeg_read_header exists passed with the following output:
+Change Dir: /home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_50bea/fast"
+/usr/bin/make -f CMakeFiles/cmTC_50bea.dir/build.make CMakeFiles/cmTC_50bea.dir/build
+make[1]: Entering directory '/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_50bea.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=jpeg_read_header   -o CMakeFiles/cmTC_50bea.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_50bea
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50bea.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=jpeg_read_header    CMakeFiles/cmTC_50bea.dir/CheckFunctionExists.c.o  -o cmTC_50bea -rdynamic /usr/lib/aarch64-linux-gnu/libjpeg.so 
+make[1]: Leaving directory '/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/CMakeTmp'
+
+

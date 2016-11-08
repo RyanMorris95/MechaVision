@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/ubuntu/Workspace/DetectObstacles/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Detect
+# Target rules for targets named Detect_v2
 
 # Build rule for target.
-Detect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Detect
-.PHONY : Detect
+Detect_v2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Detect_v2
+.PHONY : Detect_v2
 
 # fast build rule for target.
-Detect/fast:
-	$(MAKE) -f CMakeFiles/Detect.dir/build.make CMakeFiles/Detect.dir/build
-.PHONY : Detect/fast
+Detect_v2/fast:
+	$(MAKE) -f CMakeFiles/Detect_v2.dir/build.make CMakeFiles/Detect_v2.dir/build
+.PHONY : Detect_v2/fast
 
 #=============================================================================
 # Target rules for targets named dlib
@@ -136,32 +136,32 @@ dlib/fast:
 	$(MAKE) -f dlib_build/CMakeFiles/dlib.dir/build.make dlib_build/CMakeFiles/dlib.dir/build
 .PHONY : dlib/fast
 
-detect_obstacles.o: detect_obstacles.cpp.o
+detect_obstacles_v2.o: detect_obstacles_v2.cpp.o
 
-.PHONY : detect_obstacles.o
+.PHONY : detect_obstacles_v2.o
 
 # target to build an object file
-detect_obstacles.cpp.o:
-	$(MAKE) -f CMakeFiles/Detect.dir/build.make CMakeFiles/Detect.dir/detect_obstacles.cpp.o
-.PHONY : detect_obstacles.cpp.o
+detect_obstacles_v2.cpp.o:
+	$(MAKE) -f CMakeFiles/Detect_v2.dir/build.make CMakeFiles/Detect_v2.dir/detect_obstacles_v2.cpp.o
+.PHONY : detect_obstacles_v2.cpp.o
 
-detect_obstacles.i: detect_obstacles.cpp.i
+detect_obstacles_v2.i: detect_obstacles_v2.cpp.i
 
-.PHONY : detect_obstacles.i
+.PHONY : detect_obstacles_v2.i
 
 # target to preprocess a source file
-detect_obstacles.cpp.i:
-	$(MAKE) -f CMakeFiles/Detect.dir/build.make CMakeFiles/Detect.dir/detect_obstacles.cpp.i
-.PHONY : detect_obstacles.cpp.i
+detect_obstacles_v2.cpp.i:
+	$(MAKE) -f CMakeFiles/Detect_v2.dir/build.make CMakeFiles/Detect_v2.dir/detect_obstacles_v2.cpp.i
+.PHONY : detect_obstacles_v2.cpp.i
 
-detect_obstacles.s: detect_obstacles.cpp.s
+detect_obstacles_v2.s: detect_obstacles_v2.cpp.s
 
-.PHONY : detect_obstacles.s
+.PHONY : detect_obstacles_v2.s
 
 # target to generate assembly for a file
-detect_obstacles.cpp.s:
-	$(MAKE) -f CMakeFiles/Detect.dir/build.make CMakeFiles/Detect.dir/detect_obstacles.cpp.s
-.PHONY : detect_obstacles.cpp.s
+detect_obstacles_v2.cpp.s:
+	$(MAKE) -f CMakeFiles/Detect_v2.dir/build.make CMakeFiles/Detect_v2.dir/detect_obstacles_v2.cpp.s
+.PHONY : detect_obstacles_v2.cpp.s
 
 # Help Target
 help:
@@ -169,13 +169,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Detect"
+	@echo "... rebuild_cache"
+	@echo "... Detect_v2"
 	@echo "... dlib"
-	@echo "... detect_obstacles.o"
-	@echo "... detect_obstacles.i"
-	@echo "... detect_obstacles.s"
+	@echo "... detect_obstacles_v2.o"
+	@echo "... detect_obstacles_v2.i"
+	@echo "... detect_obstacles_v2.s"
 .PHONY : help
 
 

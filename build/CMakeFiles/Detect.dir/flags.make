@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wreturn-type -DDLIB_JPEG_SUPPORT -DDLIB_USE_BLAS -DDLIB_USE_LAPACK
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ubuntu/dlib-19.2/dlib/.. 
+CXX_INCLUDES = -I/home/ubuntu/dlib-19.2/dlib/.. -I/usr/include/opencv 
 

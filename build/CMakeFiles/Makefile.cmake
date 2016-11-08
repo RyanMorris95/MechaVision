@@ -19,6 +19,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/ubuntu/dlib-19.2/dlib/cmake_utils/release_build_by_default"
   "/home/ubuntu/dlib-19.2/dlib/cmake_utils/test_for_cudnn/find_cudnn.txt"
   "/home/ubuntu/dlib-19.2/dlib/cmake_utils/use_cpp_11.cmake"
+  "/usr/share/OpenCV/OpenCVConfig-version.cmake"
+  "/usr/share/OpenCV/OpenCVConfig.cmake"
+  "/usr/share/OpenCV/OpenCVModules-release.cmake"
+  "/usr/share/OpenCV/OpenCVModules.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCommonLanguageInclude.cmake"
@@ -27,6 +31,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.5/Modules/CMakeParseArguments.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/usr/share/cmake-3.5/Modules/CheckFunctionExists.c"
   "/usr/share/cmake-3.5/Modules/CheckFunctionExists.cmake"
   "/usr/share/cmake-3.5/Modules/CheckIncludeFile.cmake"
   "/usr/share/cmake-3.5/Modules/CheckIncludeFileCXX.cmake"
@@ -69,6 +74,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/Detect.dir/DependInfo.cmake"
+  "CMakeFiles/Detect_v2.dir/DependInfo.cmake"
   "dlib_build/CMakeFiles/dlib.dir/DependInfo.cmake"
   )

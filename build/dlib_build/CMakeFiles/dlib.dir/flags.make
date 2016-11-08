@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS =  -Wreturn-type -DDLIB_JPEG_SUPPORT -DDLIB_USE_BLAS -DDLIB_USE_LAPACK -DDLIB_USE_CUDA -DDLIB_PNG_SUPPORT  -O3 -DNDEBUG   -std=gnu++11
 
-CXX_DEFINES = -DDLIB_JPEG_STATIC
+CXX_DEFINES = 
 
 CXX_INCLUDES = -I/home/ubuntu/dlib-19.2/dlib/.. -I/usr/local/cuda-8.0/include 
 

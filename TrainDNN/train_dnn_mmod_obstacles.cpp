@@ -1,4 +1,11 @@
-// The contents of this file are in the public domain. See LICENSE_FOR_EXAMPLE_PROGRAMS.txt
+
+// ----------------- MY NOTES ------------------------ //
+// - Don't use affine layers to train
+// - Tried the standard mmod_ex architecture with little data
+//   and got good results on the images but no detections
+//   on the video frames
+// --------------------------------------------------- //
+
 /*
     This example shows how to train a CNN based object detector using dlib's 
     loss_mmod loss layer.  This loss layer implements the Max-Margin Object
@@ -8,22 +15,7 @@
     (see fhog_object_detector_ex.cpp) except here we replace the HOG features
     with a CNN and train the entire detector end-to-end.  This allows us to make
     much more powerful detectors.
-
-    It would be a good idea to become familiar with dlib's DNN tooling before
-    reading this example.  So you should read dnn_introduction_ex.cpp and
-    dnn_introduction2_ex.cpp before reading this example program.
-    
-    Just like in the fhog_object_detector_ex.cpp example, we are going to train
-    a simple face detector based on the very small training dataset in the
-    examples/faces folder.  As we will see, even with this small dataset the
-    MMOD method is able to make a working face detector.  However, for real
-    applications you should train with more data for an even better result.
 */
-
-
-// ----------------- MY NOTES ------------------------ //
-// - Don't use affine layers
-// --------------------------------------------------- //
 
 
 #include <iostream>
@@ -34,62 +26,138 @@
 using namespace std;
 using namespace dlib;
 
-// The first thing we do is define our CNN.  The CNN is going to be evaluated
-// convolutionally over an entire image pyramid.  Think of it like a normal
-// sliding window classifier.  This means you need to define a CNN that can look
-// at some part of an image and decide if it is an object of interest.  In this
-// example I've defined a CNN with a receptive field of a little over 50x50
-// pixels.  This is reasonable for face detection since you can clearly tell if
-// a 50x50 image contains a face.  Other applications may benefit from CNNs with
-// different architectures.  
-// 
-// In this example our CNN begins with 3 downsampling layers.  These layers will
-// reduce the size of the image by 8x and output a feature map with
-// 32 dimensions.  Then we will pass that through 4 more convolutional layers to
-// get the final output of the network.  The last layer has only 1 channel and
-// the values in that last channel are large when the network thinks it has
-// found an object at a particular location.
 
+// -------------------- mmod_ex Architecture -------------------------------------------
 
 // Let's begin the network definition by creating some network blocks.
-/*
+
 // A 5x5 conv layer that does 2x downsampling
 template <long num_filters, typename SUBNET> using con5d = con<num_filters,5,5,2,2,SUBNET>;
 // A 3x3 conv layer that doesn't do any downsampling
-template <long num_filters, typename SUBNET> using con3  = con<num_filters,3,3,1,1,SUBNET>;
+template <long num_filters, typename SUBNET> using con5  = con<num_filters,5,5,1,1,SUBNET>;
 
 // Now we can define the 8x downsampling block in terms of conv5d blocks.  We
 // also use relu and batch normalization in the standard way.
-template <typename SUBNET> using downsampler  = relu<bn_con<con5d<32, relu<bn_con<con5d<32, relu<bn_con<con5d<32,SUBNET>>>>>>>>>;
+template <typename SUBNET> using downsampler  = relu<bn_con<con5d<32, relu<bn_con<con5d<32, relu<bn_con<con5d<16,SUBNET>>>>>>>>>;
 
 // The rest of the network will be 3x3 conv layers with batch normalization and
 // relu.  So we define the 3x3 block we will use here.
-template <typename SUBNET> using rcon3  = relu<bn_con<con3<32,SUBNET>>>;
+template <typename SUBNET> using rcon5  = relu<bn_con<con5<45,SUBNET>>>;
 
 // Finally, we define the entire network.   The special input_rgb_image_pyramid
 // layer causes the network to operate over a spatial pyramid, making the detector
 // scale invariant.  
-using net_type  = loss_mmod<con<1,6,6,1,1,rcon3<rcon3<rcon3<downsampler<input_rgb_image_pyramid<pyramid_down<6>>>>>>>>;
-*/
-template <long num_filters, typename SUBNET> using con5d = con<num_filters,5,5,2,2,SUBNET>;
+using net_type  = loss_mmod<con<1,9,9,1,1,rcon5<rcon5<rcon5<downsampler<input_rgb_image_pyramid<pyramid_down<6>>>>>>>>;
+
+// ----------------------------------------------------------------------------------------
+
+// ---------------------- Googlenet Architecture ------------------------------------------
+// The googlenet architecture contains an inception network.  This leads to a series of 
+// smaller networks that concatenate their results.
+/*
+template <typename SUBNET> using block_a1 = relu<con<10,1,1,1,1,SUBNET>>;
+template <typename SUBNET> using block_a2 = relu<con<10,3,3,1,1,relu<con<16,1,1,1,1,SUBNET>>>>;
+template <typename SUBNET> using block_a3 = relu<con<10,5,5,1,1,relu<con<16,1,1,1,1,SUBNET>>>>;
+template <typename SUBNET> using block_a4 = relu<con<10,1,1,1,1,max_pool<3,3,1,1,SUBNET>>>;
+
+// Here is inception layer definition. It uses different blocks to process input
+// and returns combined output.  Dlib includes a number of these inceptionN
+// layer types which are themselves created using concat layers.  
+template <typename SUBNET> using incept_a = inception4<block_a1,block_a2,block_a3,block_a4, SUBNET>;
 template <long num_filters, typename SUBNET> using con5  = con<num_filters,5,5,1,1,SUBNET>;
+template <typename SUBNET> using rcon5  = relu<affine<con5<45,SUBNET>>>;
 
-template <typename SUBNET> using downsampler  = relu<bn_con<con5d<32, relu<bn_con<con5d<32, relu<bn_con<con5d<16,SUBNET>>>>>>>>>;
-template <typename SUBNET> using rcon5  = relu<bn_con<con5<45,SUBNET>>>;
 
-using net_type = loss_mmod<con<1,9,9,1,1,rcon5<rcon5<rcon5<downsampler<input_rgb_image_pyramid<pyramid_down<6>>>>>>>>;
 
+// Network can have inception layers of different structure.  It will work
+// properly so long as all the sub-blocks inside a particular inception block
+// output tensors with the same number of rows and columns.
+template <typename SUBNET> using block_b1 = relu<con<4,1,1,1,1,SUBNET>>;
+template <typename SUBNET> using block_b2 = relu<con<4,3,3,1,1,SUBNET>>;
+template <typename SUBNET> using block_b3 = relu<con<4,1,1,1,1,max_pool<3,3,1,1,SUBNET>>>;
+template <typename SUBNET> using incept_b = inception3<block_b1,block_b2,block_b3,SUBNET>;
+
+// Now we can define a simple network for classifying MNIST digits.  We will
+// train and test this network in the code below.
+using net_type = loss_multiclass_log<
+        con<1,9,9,1,1,rcon5<
+        max_pool<2,2,2,2,incept_b<
+        max_pool<2,2,2,2,incept_a<
+        input<matrix<rgb_pixel>>
+        >>>>>>>;
+*/
+
+// ----------------------------------------------------------------------------------------
+
+rectangle make_random_cropping_rect_resnet(
+    const matrix<rgb_pixel>& img,
+    dlib::rand& rnd
+)
+{
+    // figure out what rectangle we want to crop from the image
+    double mins = 0.466666666, maxs = 0.875;
+    auto scale = mins + rnd.get_random_double()*(maxs-mins);
+    auto size = scale*std::min(img.nr(), img.nc());
+    rectangle rect(size, size);
+    // randomly shift the box around
+    point offset(rnd.get_random_32bit_number()%(img.nc()-rect.width()),
+                 rnd.get_random_32bit_number()%(img.nr()-rect.height()));
+    return move_rect(rect, offset);
+}
+
+// ----------------------------------------------------------------------------------------
+
+void randomly_crop_image (
+    const matrix<rgb_pixel>& img,
+    matrix<rgb_pixel>& crop,
+    dlib::rand& rnd
+)
+{
+    auto rect = make_random_cropping_rect_resnet(img, rnd);
+
+    // now crop it out as a 227x227 image.
+    extract_image_chip(img, chip_details(rect, chip_dims(227,227)), crop);
+
+    // Also randomly flip the image
+    if (rnd.get_random_double() > 0.5)
+        crop = fliplr(crop);
+
+    // And then randomly adjust the colors.
+    apply_random_color_offset(crop, rnd);
+}
+
+void randomly_crop_images (
+    const matrix<rgb_pixel>& img,
+    dlib::array<matrix<rgb_pixel>>& crops,
+    dlib::rand& rnd,
+    long num_crops
+)
+{
+    std::vector<chip_details> dets;
+    for (long i = 0; i < num_crops; ++i)
+    {
+        auto rect = make_random_cropping_rect_resnet(img, rnd);
+        dets.push_back(chip_details(rect, chip_dims(227,227)));
+    }
+
+    extract_image_chips(img, dets, crops);
+
+    for (auto&& img : crops)
+    {
+        // Also randomly flip the image
+        if (rnd.get_random_double() > 0.5)
+            img = fliplr(img);
+
+        // And then randomly adjust the colors.
+        apply_random_color_offset(img, rnd);
+    }
+}
 
 // ----------------------------------------------------------------------------------------
 
 int main(int argc, char** argv) try
 {
-    // In this example we are going to train a face detector based on the
-    // small faces dataset in the examples/faces directory.  So the first
-    // thing we do is load that dataset.  This means you need to supply the
-    // path to this faces folder as a command line argument so we will know
-    // where it is.
-    if (argc != 2)
+   if (argc != 2)
     {
         cout << "Give the path to the examples/faces directory as the argument to this" << endl;
         cout << "program.  For example, if you are in the examples folder then execute " << endl;
@@ -99,52 +167,15 @@ int main(int argc, char** argv) try
         return 0;
     }
     const std::string faces_directory = argv[1];
-    // The faces directory contains a training dataset and a separate
-    // testing dataset.  The training data consists of 4 images, each
-    // annotated with rectangles that bound each human face.  The idea is 
-    // to use this training data to learn to identify human faces in new
-    // images.  
-    // 
-    // Once you have trained an object detector it is always important to
-    // test it on data it wasn't trained on.  Therefore, we will also load
-    // a separate testing set of 5 images.  Once we have a face detector
-    // created from the training data we will see how well it works by
-    // running it on the testing images. 
-    // 
-    // So here we create the variables that will hold our dataset.
-    // images_train will hold the 4 training images and face_boxes_train
-    // holds the locations of the faces in the training images.  So for
-    // example, the image images_train[0] has the faces given by the
-    // rectangles in face_boxes_train[0].
     std::vector<matrix<rgb_pixel>> images_train, images_test;
     std::vector<std::vector<mmod_rect>> face_boxes_train, face_boxes_test;
 
-    // Now we load the data.  These XML files list the images in each dataset
-    // and also contain the positions of the face boxes.  Obviously you can use
-    // any kind of input format you like so long as you store the data into
-    // images_train and face_boxes_train.  But for convenience dlib comes with
-    // tools for creating and loading XML image datasets.  Here you see how to
-    // load the data.  To create the XML files you can use the imglab tool which
-    // can be found in the tools/imglab folder.  It is a simple graphical tool
-    // for labeling objects in images with boxes.  To see how to use it read the
-    // tools/imglab/README.txt file.
     load_image_dataset(images_train, face_boxes_train, faces_directory+"/training.xml");
     load_image_dataset(images_test, face_boxes_test, faces_directory+"/testing.xml");
-
 
     cout << "num training images: " << images_train.size() << endl;
     cout << "num testing images:  " << images_test.size() << endl;
 
-
-    // The MMOD algorithm has some options you can set to control its behavior.  However,
-    // you can also call the constructor with your training annotations and a "target
-    // object size" and it will automatically configure itself in a reasonable way for your
-    // problem.  Here we are saying that faces are still recognizably faces when they are
-    // 40x40 pixels in size.  You should generally pick the smallest size where this is
-    // true.  Based on this information the mmod_options constructor will automatically
-    // pick a good sliding window width and height.  It will also automatically set the
-    // non-max-suppression parameters to something reasonable.  For further details see the
-    // mmod_options documentation.
     mmod_options options(face_boxes_train, 40*40);
     cout << "detection window width,height:      " << options.detector_width << "," << options.detector_height << endl;
     cout << "overlap NMS IOU thresh:             " << options.overlaps_nms.get_iou_thresh() << endl;
@@ -156,7 +187,7 @@ int main(int argc, char** argv) try
     trainer.set_learning_rate(0.1);
     trainer.be_verbose();
     trainer.set_synchronization_file("mmod_sync", std::chrono::minutes(5));
-    trainer.set_iterations_without_progress_threshold(8000);
+    trainer.set_iterations_without_progress_threshold(6000);
 
 
     // Now let's train the network.  We are going to use mini-batches of 150
@@ -172,7 +203,7 @@ int main(int argc, char** argv) try
     // hours.
     while(trainer.get_learning_rate() >= 1e-4)
     {
-        cropper(1, images_train, face_boxes_train, mini_batch_samples, mini_batch_labels);
+        cropper(10, images_train, face_boxes_train, mini_batch_samples, mini_batch_labels);
         // We can also randomly jitter the colors and that often helps a detector
         // generalize better to new images.
         for (auto&& img : mini_batch_samples)
@@ -219,7 +250,6 @@ catch(std::exception& e)
 {
     cout << e.what() << endl;
 }
-
 
 
 
