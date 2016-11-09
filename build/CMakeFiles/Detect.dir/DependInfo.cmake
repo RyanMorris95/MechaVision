@@ -1,23 +1,24 @@
 # The set of languages for which implicit dependencies are needed:
-set(CMAKE_DEPENDS_LANGUAGES
+SET(CMAKE_DEPENDS_LANGUAGES
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ubuntu/Workspace/DetectObstacles/detect_obstacles.cpp" "/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/Detect.dir/detect_obstacles.cpp.o"
+SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/ryan/Workspace/MechaVision/detect_obstacles.cpp" "/home/ryan/Workspace/MechaVision/build/CMakeFiles/Detect.dir/detect_obstacles.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/ubuntu/dlib-19.2/dlib/.."
-  "/usr/include/opencv"
-  )
+SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ubuntu/Workspace/DetectObstacles/build/dlib_build/CMakeFiles/dlib.dir/DependInfo.cmake"
+SET(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/ryan/Workspace/MechaVision/build/dlib_build/CMakeFiles/dlib.dir/DependInfo.cmake"
   )
 
-# Fortran module output directory.
-set(CMAKE_Fortran_TARGET_MODULE_DIR "")
+# The include file search paths:
+SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "/home/ryan/dlib-19.2/dlib/.."
+  "/usr/local/include/opencv"
+  "/usr/local/include"
+  )
+SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

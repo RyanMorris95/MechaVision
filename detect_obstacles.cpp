@@ -99,7 +99,7 @@ int main(int argc, char** argv) try
     //for (int i = 2; i < argc; ++i)
     for (int i = 2; i < argc; i++)
     {
-	
+        matrix<rgb_pixel> img;	
         load_image(img, argv[i]);
 	matrix<rgb_pixel> out_img;
 	out_img.set_size(400,400);

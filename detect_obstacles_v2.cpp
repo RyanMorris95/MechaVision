@@ -39,6 +39,9 @@
 
 #include "stereo_matching.hpp"
 */
+#include "GrabCut.h"
+
+
 using namespace std;
 using namespace dlib;
 
@@ -94,9 +97,14 @@ int main(int argc, char** argv) try
 	return 1;
     }
 
+    // Load model
     net_type net;
     deserialize(argv[1]) >> net;  
 
+    // Create GrabCut object
+    GrabCut grabCut;    
+
+    // Create display windows
     image_window win;
     image_window seg_win;
     
@@ -154,7 +162,8 @@ int main(int argc, char** argv) try
 		     
 		     tracker.start_track(out_img, centered_rect(point(center(d.rect)), d.rect.width(), d.rect.height()));
 		     //extract_image_chips(out_img, d , roi_img);
-		     segment_image(out_img, roi_img, 200, 10);
+		     //segment_image(out_img, roi_img, 200, 10);
+		     ForgroundSegmentation();
 		     num_dets++;
 		     
 		}

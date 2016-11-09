@@ -1,6 +1,3 @@
-/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/edit_cache.dir
-/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/rebuild_cache.dir
-/home/ubuntu/Workspace/DetectObstacles/build/CMakeFiles/Detect_v2.dir
-/home/ubuntu/Workspace/DetectObstacles/build/dlib_build/CMakeFiles/edit_cache.dir
-/home/ubuntu/Workspace/DetectObstacles/build/dlib_build/CMakeFiles/rebuild_cache.dir
-/home/ubuntu/Workspace/DetectObstacles/build/dlib_build/CMakeFiles/dlib.dir
+/home/ryan/Workspace/MechaVision/build/CMakeFiles/Detect.dir
+/home/ryan/Workspace/MechaVision/build/CMakeFiles/TestGrabCut.dir
+/home/ryan/Workspace/MechaVision/build/dlib_build/CMakeFiles/dlib.dir

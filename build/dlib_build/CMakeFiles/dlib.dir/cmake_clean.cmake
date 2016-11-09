@@ -1,5 +1,4 @@
-file(REMOVE_RECURSE
-  "CMakeFiles/dlib.dir/dnn/dlib_generated_cuda_dlib.cu.o"
+FILE(REMOVE_RECURSE
   "CMakeFiles/dlib.dir/base64/base64_kernel_1.cpp.o"
   "CMakeFiles/dlib.dir/bigint/bigint_kernel_1.cpp.o"
   "CMakeFiles/dlib.dir/bigint/bigint_kernel_2.cpp.o"
@@ -54,15 +53,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/dlib.dir/image_saver/save_png.cpp.o"
   "CMakeFiles/dlib.dir/image_loader/jpeg_loader.cpp.o"
   "CMakeFiles/dlib.dir/image_saver/save_jpeg.cpp.o"
-  "CMakeFiles/dlib.dir/dnn/cudnn_dlibapi.cpp.o"
-  "CMakeFiles/dlib.dir/dnn/cublas_dlibapi.cpp.o"
-  "CMakeFiles/dlib.dir/dnn/curand_dlibapi.cpp.o"
-  "CMakeFiles/dlib.dir/dnn/gpu_data.cpp.o"
   "libdlib.pdb"
   "libdlib.a"
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
-  include(CMakeFiles/dlib.dir/cmake_clean_${lang}.cmake OPTIONAL)
-endforeach()
+FOREACH(lang CXX)
+  INCLUDE(CMakeFiles/dlib.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)
